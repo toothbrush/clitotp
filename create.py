@@ -17,14 +17,10 @@ print("Will insert into: %s" % (secret_file))
 
 my_secret = raw_input("Give me the secret (C-c cancels): ")
 
-print(str(my_secret))
-
 recipients = ['0xF2846B1A0D32C442']
 encrypted_secret = gpg.encrypt(my_secret, recipients)
 
 with open(secret_file, "wb") as f:
     f.write(str(encrypted_secret))
-
-print encrypted_secret
 
 print "Encrypted and saved."
