@@ -1,5 +1,6 @@
-onetimepass==1.0.1
-psutil==5.4.8
-pyperclip==1.7.0
-python-gnupg==0.4.3
-six==1.11.0
+onetimepass>=1.0.1
+psutil>=5.4.8
+pyperclip>=1.7.0
+python-gnupg>=0.4.3
+six>=1.11.0
+virtualenv>=16.1.0
