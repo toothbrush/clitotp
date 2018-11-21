@@ -27,6 +27,12 @@ clock = time.time()
 interval_length = 30
 intervals_no = int(clock) // interval_length
 
+seconds_validity_left = interval_length - int(clock) % interval_length
+
+# Almost expired?  Go ahead and grab the next one.
+if seconds_validity_left < 5:
+    print "Expires in %ds, skipping." % seconds_validity_left
+    intervals_no += 1
 
 # Pad to 6 digits.
 my_token = "%06d" % otp.get_hotp(my_secret,
