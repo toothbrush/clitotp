@@ -16,8 +16,9 @@ secret_file = os.path.join(my_secret_store_dir, user_wants)
 
 print("Will decrypt %s..." % (secret_file))
 
-my_secret = gpg.decrypt_file(open(secret_file, "rb"))
-my_secret = str(my_secret).strip()
+with open(secret_file, "rb") as f:
+    my_secret = gpg.decrypt_file(f)
+    my_secret = str(my_secret).strip()
 
 print "Decrypted."
 
