@@ -3,6 +3,7 @@
 import gnupg
 import onetimepass as otp
 import os
+import pyperclip
 
 gpg = gnupg.GPG(gnupghome=os.path.expanduser('~/.gnupg'))
 
@@ -23,3 +24,6 @@ print my_secret
 my_token = otp.get_totp(my_secret)
 
 print my_token
+
+pyperclip.copy(my_token)
+print "Copied."
