@@ -19,7 +19,7 @@ print("Will decrypt %s..." % (secret_file))
 my_secret = gpg.decrypt_file(open(secret_file, "rb"))
 my_secret = str(my_secret).strip()
 
-print my_secret
+print "Decrypted."
 
 my_token = otp.get_totp(my_secret)
 
