@@ -5,6 +5,7 @@ import onetimepass as otp
 import os
 import pyperclip
 import sys
+import time
 
 gpg = gnupg.GPG(gnupghome=os.path.expanduser('~/.gnupg'))
 
@@ -22,9 +23,18 @@ with open(secret_file, "rb") as f:
 
 print "done."
 
-my_token = otp.get_totp(my_secret)
+clock = time.time()
+interval_length = 30
+intervals_no = int(clock) // interval_length
 
+my_token = otp.get_hotp(my_secret,
+                        intervals_no)
 
 print("This token: %06d" % my_token),
 pyperclip.copy(my_token)
 print("(copied)")
+
+next_token = otp.get_hotp(my_secret,
+                          intervals_no+1)
+
+print("Next token: %06d" % next_token)
