@@ -27,10 +27,12 @@ clock = time.time()
 interval_length = 30
 intervals_no = int(clock) // interval_length
 
-my_token = otp.get_hotp(my_secret,
-                        intervals_no)
 
-print("This token: %06d" % my_token),
+# Pad to 6 digits.
+my_token = "%06d" % otp.get_hotp(my_secret,
+                                 intervals_no)
+
+print("This token: %s" % my_token),
 pyperclip.copy(my_token)
 print("(copied)")
 
