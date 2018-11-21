@@ -12,7 +12,7 @@ my_secret_store_dir = os.path.expanduser('~/.totp')
 
 user_wants = str(sys.argv[1])
 
-secret_file = os.path.join(my_secret_store_dir, user_wants) + '.gpg'
+secret_file = os.path.join(my_secret_store_dir, user_wants)
 
 print("Will decrypt %s..." % (secret_file))
 
