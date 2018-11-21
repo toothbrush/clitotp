@@ -4,13 +4,13 @@ import gnupg
 import onetimepass as otp
 import os
 import pyperclip
+import sys
 
 gpg = gnupg.GPG(gnupghome=os.path.expanduser('~/.gnupg'))
 
 my_secret_store_dir = os.path.expanduser('~/.totp')
 
-# this would be a parameter / argument
-user_wants = 'runbox'
+user_wants = str(sys.argv[1])
 
 secret_file = os.path.join(my_secret_store_dir, user_wants) + '.gpg'
 
