@@ -1,11 +1,11 @@
 #!/usr/bin/env python
+import os
+import sys
+import time
 
 import gnupg
 import onetimepass as otp
-import os
 import pyperclip
-import sys
-import time
 
 gpg = gnupg.GPG(gnupghome=os.path.expanduser('~/.gnupg'))
 
