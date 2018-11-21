@@ -12,7 +12,7 @@ user_wants = str(sys.argv[1])
 
 secret_file = os.path.join(my_secret_store_dir, user_wants + '.gpg')
 
-print("Will insert into: %s" % (secret_file))
+print "Will insert into: %s" % (secret_file)
 
 my_secret = raw_input("Give me the secret (C-c cancels): ")
 

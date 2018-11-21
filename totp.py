@@ -15,7 +15,7 @@ user_wants = str(sys.argv[1])
 
 secret_file = os.path.join(my_secret_store_dir, user_wants)
 
-print("Trying to decrypt %s..." % (secret_file)),
+print "Trying to decrypt %s..." % (secret_file),
 
 with open(secret_file, "rb") as f:
     my_secret = gpg.decrypt_file(f)
@@ -38,11 +38,11 @@ if seconds_validity_left < 5:
 my_token = "%06d" % otp.get_hotp(my_secret,
                                  intervals_no)
 
-print("This token: %s" % my_token),
+print "This token: %s" % my_token,
 pyperclip.copy(my_token)
-print("(copied)")
+print "(copied)"
 
 next_token = otp.get_hotp(my_secret,
                           intervals_no+1)
 
-print("Next token: %06d" % next_token)
+print "Next token: %06d" % next_token
