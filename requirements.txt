@@ -1,0 +1,4 @@
+onetimepass==1.0.1
+psutil==5.4.8
+python-gnupg==0.4.3
+six==1.11.0
