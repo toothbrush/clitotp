@@ -38,7 +38,8 @@ if seconds_validity_left < 5:
 my_token = "%06d" % otp.get_hotp(my_secret,
                                  intervals_no)
 
-print "This token: %s" % my_token,
+print(my_token)
+
 pyperclip.copy(my_token)
 sys.stderr.write("Token copied to clipboard.\n")
 
