@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import os
 import sys
 
@@ -12,14 +12,14 @@ user_wants = str(sys.argv[1])
 
 secret_file = os.path.join(my_secret_store_dir, user_wants + '.gpg')
 
-print "Will insert into: %s" % (secret_file)
+print(f"Will insert into: {secret_file}")
 
-my_secret = raw_input("Give me the secret (C-c cancels): ")
+my_secret = input("Give me the secret (C-c cancels): ")
 
 recipients = ['0xF2846B1A0D32C442']
 encrypted_secret = gpg.encrypt(my_secret, recipients)
 
 with open(secret_file, "wb") as f:
-    f.write(str(encrypted_secret))
+    f.write(str(encrypted_secret).encode())
 
-print "Encrypted and saved."
+print("Encrypted and saved.")
