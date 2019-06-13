@@ -34,6 +34,20 @@ if seconds_validity_left < 5:
     sys.stderr.write("Expires in %ds, skipping.\n" % seconds_validity_left)
     intervals_no += 1
 
+# Add Base32 padding.  Turns out otp is picky these days.
+my_secret = my_secret.replace(' ', '')
+rem = len(my_secret) % 8
+if rem == 2:
+    my_secret += "======"
+elif rem == 4:
+    my_secret += "===="
+elif rem == 5:
+    my_secret += "==="
+elif rem == 7:
+    my_secret += "=="
+elif rem != 0:
+    raise ValueError()
+
 # Pad to 6 digits.
 my_token = "%06d" % otp.get_hotp(my_secret,
                                  intervals_no)
