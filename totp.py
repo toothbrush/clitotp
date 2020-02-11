@@ -21,6 +21,10 @@ with open(secret_file, "rb") as f:
     my_secret = gpg.decrypt_file(f)
     my_secret = str(my_secret).strip()
 
+if len(my_secret) < 4:
+    sys.stderr.write("Your secret is awfully short, aborting.")
+    sys.exit(1)
+
 sys.stderr.write("done.\n")
 
 clock = time.time()
