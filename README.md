@@ -1,5 +1,7 @@
 # clitotp
 
+> :warning: **This repo is archived**: It has been superseded by https://github.com/toothbrush/clitotp-go.
+
 This is a very hacky script to generate TOTPs on the CLI in a way that
 i understand and can manage.  It puts the data where i want it,
 encrypted with GnuPG.  This will probably not be suitable for your
